@@ -4,10 +4,15 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/time.h>
+#include <jni.h>
+#include <string.h>
 
 const GpsInterface* gGpsInterface = NULL;
 const AGpsInterface* gAGpsInterface = NULL;
 const AGpsRilInterface* gAGpsRilInterface = NULL;
+
+
+
 
 static const GpsInterface* get_gps_interface()
 {
@@ -221,3 +226,12 @@ int main(int argc, char *argv[])
   sleep(10000000);
   return 0;
 }
+
+
+
+static void Java_com_example_jnitest10_JniTest10_deleteAidingData(JNIEnv* env, jobject obj, jint flags)
+{
+    if (gGpsInterface)
+        gGpsInterface->delete_aiding_data(flags);
+}
+
