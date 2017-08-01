@@ -22,4 +22,4 @@ LOCAL_MODULE:= test-gps
 
 LOCAL_MODULE_TAGS := optional
 
-include $(BUILD_EXECUTABLE)
+include $(BUILD_SHARED_LIBRARY)
